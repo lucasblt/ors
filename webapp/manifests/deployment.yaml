@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: test
-        image: lucasblt/ors:22
+        image: lucasblt/ors:latest
         imagePullPolicy: Always
 
 ---

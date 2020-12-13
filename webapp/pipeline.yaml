@@ -6,7 +6,7 @@ resources:
 
 variables:
   vmImageName: 'ubuntu-latest'
-  ImageName: 'lucasblt/ors:$(Build.BuildId)'
+  ImageName: 'lucasblt/ors:latest'
 
 stages:
 - stage: Build

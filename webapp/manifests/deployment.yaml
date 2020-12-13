@@ -21,7 +21,7 @@ spec:
         name: ors-app
     spec:
       containers:
-      - name: test
+      - name: ors-app
         image: lucasblt/ors:latest
         imagePullPolicy: Always
 

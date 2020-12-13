@@ -23,7 +23,7 @@ stages:
         containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'Docker Hub'
         command: 'Build an image'
-        dockerFile: 'app/Dockerfile'
+        dockerFile: 'webapp/app/Dockerfile'
         imageName: '$(ImageName)'
         includeLatestTag: true
         useDefaultContext: false
@@ -36,7 +36,7 @@ stages:
         command: 'Push an image'
         imageName: '$(ImageName)'
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest')) 
-    - upload: manifests
+    - upload: webapp/manifests
       artifact: manifests
 
 - stage: Deploy
@@ -59,4 +59,4 @@ stages:
               scriptLocation: inlineScript
               inlineScript: |
                   az aks get-credentials -n ors-cluster-aks -g ors-cluster-rg
-                  kubectl apply -f $(Pipeline.Workspace)/manifests/deployment.yaml
+                  kubectl apply -f $(Pipeline.Workspace)/webapp/manifests/deployment.yaml

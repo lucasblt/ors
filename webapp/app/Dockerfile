@@ -2,7 +2,7 @@ FROM python:3.8
 
 RUN apt-get update -y && apt-get install -y
 
-COPY /app/requirements.txt /app/requirements.txt
+COPY webapp/app/requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
